@@ -144,7 +144,7 @@ int main()
     int vertex_idx;//接住dequeue的vertex值
     int num1, num2;
     
-    while(queue->size > 0)
+    while(queue->size > 0)//核心迴圈：每次dequeue完讓目前的vertex能對應愈多邊愈好，直到vertex對完了或目前無法配對，才換下一個queue element
     {
         vertex_idx = dequeue(queue);
         InQueue[vertex_idx] = false;//目前vertex_idx不在queue中
@@ -172,7 +172,7 @@ int main()
         }
     }
 
-    if (count < edgeNum)//成功的邊數應該要和所有邊數相等，否則失敗
+    if (count < edgeNum)//queue空的時候，成功的邊數應該要和所有邊數相等，否則代表失敗
         possible = false;
     
     if (possible == false)
